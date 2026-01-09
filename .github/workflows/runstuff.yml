@@ -17,13 +17,13 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: 10.0.x
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore TestApp2/TestApp2.csproj
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
-
+      run: dotnet build --configuration Release --no-restore TestApp2/TestApp2.csproj
+      
     - name: Run console app
-      run: dotnet run --project TestApp2.csproj
+      run: dotnet run --project TestApp2/TestApp2.csproj
